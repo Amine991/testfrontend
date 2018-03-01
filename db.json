@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "pc",
+      "productdesc": "ram:6; cpu: i7....",
+      "price": 1320
+    },
+    {
+      "id": 2,
+      "name": "Angular101",
+      "productdesc": "ram:8; cpu: i5....",
+      "price": 1820
+    },
+    {
+      "id": 3,
+      "name": "Angular101",
+      "productdesc": "ram:6; cpu: i3....",
+      "price": 1020
+    }
+    ]
+    
+  
+  }

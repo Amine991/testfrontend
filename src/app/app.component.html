@@ -1,0 +1,100 @@
+ <section class="container">
+<section class="row">
+<header class="col-md-12 alert alert-info">  
+  <h1 title="card">Hello</h1>
+</header>
+<article class="col-md-5">
+  <h4>Create Product</h4>
+     <form #valForm="ngForm"  id="idform" (ngSubmit)="addProduct(valForm.value);  valForm.reset();" >
+     <label for="name">Product</label>
+     <input class="form-control" 
+      type="text"  
+      name="name"  
+      [(ngModel)]="newname" 
+      placeholder="Enter product name" 
+      maxlength="30" 
+      #name="ngModel"
+      required>
+      <span class="text-invalid" *ngIf="name.invalid && name.touched">product name must be less or equal to 30 charaters</span>
+      <label>Product description</label>
+      <textarea class="form-control" 
+      name="description" 
+      [(ngModel)]="newdesc" 
+      placeholder="Enter product Description" 
+      maxlength="100"
+      #description="ngModel"
+      required></textarea>
+        <span class="text-invalid" *ngIf="description.invalid && description.touched">Product Description must be less or equal to 100 charaters</span>
+     <label>Price</label>
+     
+     
+
+       <input class="form-control" 
+       type="text"  
+       name="price"  
+       [(ngModel)]="newprice"  
+       placeholder="Enter price " 
+       maxlength="30" 
+       #name="ngModel"
+       required>
+
+       <label>Brand</label>
+     
+     
+
+       <input class="form-control" 
+       type="text"  
+       name="brand"  
+       [(ngModel)]="newbrand"  
+       placeholder="Enter brand " 
+       maxlength="30" 
+       #name="ngModel"
+       required>
+
+       <label>Categoryid</label>
+     
+     
+
+       <input class="form-control" 
+       type="text"  
+       name="categoryid"  
+       [(ngModel)]="newcatid" 
+       placeholder="Enter categoryid " 
+       maxlength="30" 
+       #name="ngModel"
+       required>
+     
+
+     
+
+       
+     <input class="form-control btn btn-primary"  type="submit"  value="Create Product" [disabled]="!valForm.form.valid" >
+    
+   </form>
+
+
+
+
+</article>
+<section class="card">
+  <article class="col-md-7">
+    <h3 *ngIf="errorMsg === 'Not Found'">  
+    The backend server returns error : {{errorMsg}}
+    </h3>
+    <h4>View Products</h4>
+ 
+    <ul *ngFor=" let product of products" class="well well-sm">
+    <li><strong>Product name:</strong> {{product.name}}</li>
+    <li><strong>Product Description:</strong> {{product.description}}</li>
+    <li><strong> Price :: </strong>{{product.price}}</li> 
+    <li><strong> Brand :: </strong>{{product.brand}}</li> 
+    <button class="form-control btn btn-primary" (click)="delete(product.id)">Delete</button>
+    <button class="form-control btn btn-primary"  
+    type="submit"  (click)="update(product,newprice,newbrand,newname,newcatid,newdesc)" >Update</button>
+   
+    </ul>
+    </article>
+    
+
+</section>
+</section>
